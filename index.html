@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+    <div id="appRegistro" class="container-fluid" >
+        <form v-on:submit.prevent="guardarDatos">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="row p-2">
+                        <div class="col-sm text-center text-white bg-warning">
+                            <h5>MI REGISTRO</h5>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm">CODIGO:</div>
+                        <div class="col-sm">
+                            <input v-model="dto.codigo" placeholder="Escriba el Código" type="text" class="form-control form-control-sm" >
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm">NOMBRE: </div>
+                        <div class="col-sm">
+                            <input v-model="dto.nombre" placeholder="Escriba su Nombre" type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm">DIRECCION:</div>
+                        <div class="col-sm">
+                            <input v-model="dto.direccion" placeholder="Escriba la dirección" type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm">MUNICIPIO:</div>
+                        <div class="col-sm">
+                            <input v-model="dto.municipio" placeholder="Escriba el municipio" type="text" class="form-control form-control-sm" >
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm">DEPARTAMENTO: </div>
+                        <div class="col-sm">
+                            <input v-model="dto.departamento" placeholder="Escriba el departamento" type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm">TELEFONO:</div>
+                        <div class="col-sm">
+                            <input v-model="dto.telefono" placeholder="Ingrese su numero" type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm">FECHA DE NACIMIENTO:</div>
+                        <div class="col-sm">
+                            <input v-model="dto.fecha" placeholder="Ingrese fecha de nacimiento" type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm">SEXO: </div>
+                        <div class="col-sm">
+                            <input v-model="dto.sexo" placeholder="Ingrese su genero" type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row -p-2">
+                        <div class="col-sm text-center">
+                            <input type="submit" value="Guardar" class="btn btn-warning">
+                            <input type="reset" value="Limpiar" class="btn btn-warning">
+                            <input class="btn btn-warning" type="reset" value="Reset">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm"></div>
+                <div class="col-sm-6 p-2">
+                    <div class="row text-center text-white bg-warning">
+                        <div class="col"><h5>DATOS GUARDADOS</h5></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <table class="tble table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>CODIGO</th>
+                                        <th>NOMBRE</th>
+                                        <th>DIRECCION</th>
+                                        <th>MUNICIPIO</th>
+                                        <th>DEPARTAMENTO</th>
+                                        <th>TELEFONO</th>
+                                        <th>FECHA</th>
+                                        <th>SEXO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="d in dtos" v-on:click="mostrardto(d)"> 
+                                        <td>{{ d.codigo }}</td>
+                                        <td>{{ d.nombre }}</td>
+                                        <td>{{ d.direccion }}</td>
+                                        <td>{{ d.municipio }}</td>
+                                        <td>{{ d.departamento }}</td>
+                                        <td>{{ d.telefono }}</td>
+                                        <td>{{ d.fecha }}</td>
+                                        <td>{{ d.sexo }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="main.js"></script> 
+</body>
+</html>
